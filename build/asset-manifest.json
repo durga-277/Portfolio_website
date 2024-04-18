@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/durga-277/static/css/main.8aa16b4a.css",
+    "main.js": "/durga-277/static/js/main.ec12168d.js",
+    "static/media/HeroImage.jpg": "/durga-277/static/media/HeroImage.7634bcfc04a2c1d0b116.jpg",
+    "index.html": "/durga-277/index.html",
+    "main.8aa16b4a.css.map": "/durga-277/static/css/main.8aa16b4a.css.map",
+    "main.ec12168d.js.map": "/durga-277/static/js/main.ec12168d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8aa16b4a.css",
+    "static/js/main.ec12168d.js"
+  ]
+}
