@@ -88,12 +88,13 @@ function Footer() {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <Logo>Rishav Chanda</Logo>
+        <Logo>Durgamohan Maheswaram</Logo>
         <Nav>
           <NavLink href="#about">About</NavLink>
           <NavLink href="#skills">Skills</NavLink>
           <NavLink href="#experience">Experience</NavLink>
           <NavLink href="#projects">Projects</NavLink>
+          <NavLink href="#achievements">Achievements</NavLink>
           <NavLink href="#education">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
@@ -103,7 +104,7 @@ function Footer() {
           <SocialMediaIcon href={Bio.insta} target="display"><InstagramIcon /></SocialMediaIcon>
         </SocialMediaIcons>
         <Copyright>
-          &copy; 2023 Rishav Chanda. All rights reserved.
+          &copy; 2023 Durgamohan Maheswaram. All rights reserved.
         </Copyright>
 
       </FooterWrapper>

@@ -10,6 +10,7 @@ import TimelineDot from '@mui/lab/TimelineDot';
 import ExperienceCard from '../Cards/ExperienceCard';
 import { experiences } from '../../data/constants';
 
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -80,7 +81,7 @@ const index = () => {
             <Wrapper>
                 <Title>Experience</Title>
                 <Desc>
-                    My work experience as a software engineer and working on different companies and projects.
+                    My work experience as a software engineer.
                 </Desc>
                 <TimelineSection>
                     <Timeline>

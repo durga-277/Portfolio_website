@@ -5,6 +5,7 @@ export default {
       main: "Space Grotesk, sans-serif"
     },
     // Colors for layout
+    
     colors: {
       primary1: "#854CE6",
       background1: "#222A35",

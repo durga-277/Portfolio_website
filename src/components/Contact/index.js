@@ -1,8 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react'; 
 import emailjs from '@emailjs/browser';
-import { Snackbar } from '@mui/material';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+const bounceTransition = {
+  enter: 'animate__animated animate__bounceIn',
+  exit: 'animate__animated animate__bounceOut',
+};
 
 const Container = styled.div`
 display: flex;
@@ -125,21 +131,46 @@ const ContactButton = styled.input`
 const Contact = () => {
 
   //hooks
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
+  // const form = useRef();
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   emailjs.sendForm('service_cxrikai', 'template_iw3bcbe', form.current, 'TwRCtoq9anpl-G7si')
+  //     .then((result) => {
+  //       setOpen(true);
+  //       form.current.reset();
+  //       notifySuccess();
+  //     }, (error) => {
+  //       console.log(error.text);
+  //       notifyError();
+  //     });
+  // }
+
+  const [open, setOpen] = useState(false);
   const form = useRef();
+
+  const notifySuccess = () => toast.success("Email sent successfully!", { className: 'animate__animated animate__bounceIn' });
+  const notifyError = () => toast.error("Error sending email. Please try again.");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    emailjs.sendForm('service_tox7kqs', 'template_nv7k7mj', form.current, 'SybVGsYS52j2TfLbi')
+    emailjs.sendForm('service_cxrikai', 'template_iw3bcbe', form.current, 'TwRCtoq9anpl-G7si')
       .then((result) => {
+        console.log('Form submitted successfully:', result);
         setOpen(true);
         form.current.reset();
-      }, (error) => {
-        console.log(error.text);
+        notifySuccess();
+      })
+      .catch((error) => {
+        console.error('Error submitting form:', error);
+        notifyError();
       });
-  }
+  };
 
-
+  useEffect(() => {
+    console.log('Snackbar open:', open);
+  }, [open]);
 
   return (
     <Container>
@@ -154,16 +185,22 @@ const Contact = () => {
           <ContactInputMessage placeholder="Message" rows="4" name="message" />
           <ContactButton type="submit" value="Send" />
         </ContactForm>
-        <Snackbar
-          open={open}
-          autoHideDuration={6000}
-          onClose={()=>setOpen(false)}
-          message="Email sent successfully!"
-          severity="success"
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          // transition={bounceTransition}
         />
       </Wrapper>
     </Container>
-  )
+  );
 }
 
 export default Contact

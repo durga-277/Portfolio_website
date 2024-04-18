@@ -14,6 +14,7 @@ import Experience from "./components/Experience";
 import Education from "./components/Education";
 import ProjectDetails from "./components/ProjectDetails";
 import styled from "styled-components";
+import Achievement from "./components/Achievement"
 
 const Body = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -40,11 +41,14 @@ function App() {
             <Skills />
             <Experience />
           </Wrapper>
-          <Projects openModal={openModal} setOpenModal={setOpenModal} />
-          <Wrapper>
-            <Education />
+          {/* <Projects openModal={openModal} setOpenModal={setOpenModal} /> */}
+
+          <Wrapper>  
+            <Achievement />
+            <Education />  
             <Contact />
           </Wrapper>
+         
           <Footer />
           {openModal.state &&
             <ProjectDetails openModal={openModal} setOpenModal={setOpenModal} />

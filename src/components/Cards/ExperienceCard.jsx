@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useState } from 'react';
+import { FaFilePdf } from 'react-icons/fa';
 
 const Document = styled.img`
     display: none;
@@ -140,13 +142,26 @@ const Skill = styled.div`
     @media only screen and (max-width: 768px){
         font-size: 12px;
     }
-`
-
-
+`;
+const CertificateText = styled.span`
+  display: block;
+  font-size: 12px;
+  color: ${({ theme }) => theme.text_secondary};
+`;
 
 const ExperienceCard = ({ experience }) => {
+    const [showDocument, setShowDocument] = useState(false);
+
+  const openDocument = () => {
+    window.open(experience.doc, '_blank'); // Opens the document in a new tab
+  };
+
     return (
-        <Card>
+        // <Card>
+            <Card
+            onMouseEnter={() => setShowDocument(true)}
+            onMouseLeave={() => setShowDocument(false)}
+            >
             <Top>
                 <Image src={experience.img} />
                 <Body>
@@ -174,11 +189,23 @@ const ExperienceCard = ({ experience }) => {
                     </>
                 }
             </Description>
-            {experience.doc &&
+            {/* {experience.doc &&
                 <a href={experience.doc} target="new">
                     <Document src={experience.doc} />
                 </a>
-            }
+            } */}
+
+            {/* <Document
+                    src={experience.doc} // Assuming doc is the URL for the document
+                    onClick={openDocument}
+                /> */}
+
+            {showDocument && (
+            <div onClick={openDocument} style={{ display: 'flex', alignItems: 'center' }}>
+                <FaFilePdf size={24} style={{ marginRight: '12px', color: '#fff' }} />
+                <CertificateText><b>Certificate</b></CertificateText>
+            </div>
+            )}
         </Card>
     )
 }
